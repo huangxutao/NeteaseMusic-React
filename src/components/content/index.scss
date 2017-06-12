@@ -1,0 +1,12 @@
+@import '../../assets/scss/variable';
+
+.content{
+  padding: ($headerHeight + 2rem) 10%;
+}
+
+.item{
+  width: 18rem;
+  padding: 1rem;
+  box-shadow: 0 0 1rem #eee;
+  box-sizing: border-box;
+}

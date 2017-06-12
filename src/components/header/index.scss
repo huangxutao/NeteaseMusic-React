@@ -1,0 +1,91 @@
+@import '../../assets/scss/variable';
+
+header{
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  padding: 0 10%;
+  height: $headerHeight;
+  line-height: $headerHeight;
+  box-shadow: 0 0 1rem #888;
+  box-sizing: border-box;
+  background: #fff;
+
+  &:after{
+    content: "";
+    display: block;
+    clear: both;
+  }
+}
+
+.logo{
+  float: left;
+  height: 100%;
+  font-size: 1.4rem;
+  user-select: none;
+  cursor: default;
+
+  img{
+    margin-right: 1rem;
+    width: 3.2rem;
+    height: 3.2rem;
+    vertical-align: middle;
+  }
+}
+
+.nav{
+  float: left;
+  padding: 0 3.6rem;
+
+  a{
+    position: relative;
+    display: inline-block;
+    padding: 0 1rem;
+    font-size: 1.2rem;
+
+    &:hover{
+      color: $baseColor;
+    }
+
+    &.active:after{
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background: $baseColor;
+    }
+
+    &.active{
+      color: $baseColor;
+    }
+  }
+}
+
+.search{
+  float: right;
+  position: relative;
+
+  i{
+    position: absolute;
+    right: 14.2rem;
+  }
+
+  input{
+    padding: 0 .6rem;
+    text-indent: 1rem;
+    width: 14.4rem;
+    height: 2.4rem;
+    border: none;
+
+    &:focus{
+      outline: none;
+      border-bottom: .1rem solid $baseColor;
+    }
+  }
+}
+
+
+
