@@ -10,7 +10,7 @@ class Header extends Component {
       <header>
         <div className={Style.logo}>
           <img src={Logo} alt="" />
-          Netease Music
+          Cloud Music
         </div>
         <nav className={Style.nav}>
           <a href="" className={Style.active}>发现音乐</a>

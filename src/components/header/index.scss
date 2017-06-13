@@ -8,7 +8,8 @@ header{
   padding: 0 10%;
   height: $headerHeight;
   line-height: $headerHeight;
-  box-shadow: 0 0 1rem #888;
+  // box-shadow: 0 0 1rem #888;
+  border-bottom: 4px solid $baseColor;
   box-sizing: border-box;
   background: #fff;
 
@@ -23,6 +24,7 @@ header{
   float: left;
   height: 100%;
   font-size: 1.4rem;
+  font-family: monospace;
   user-select: none;
   cursor: default;
 
@@ -41,7 +43,7 @@ header{
   a{
     position: relative;
     display: inline-block;
-    padding: 0 1rem;
+    padding: 0 1.6rem;
     font-size: 1.2rem;
 
     &:hover{
@@ -51,11 +53,14 @@ header{
     &.active:after{
       content: "";
       position: absolute;
+      right: 0;
       bottom: 0;
       left: 0;
-      width: 100%;
-      height: 2px;
-      background: $baseColor;
+      margin: auto;
+      width: 0;
+      height: 0;
+      border: 1rem solid transparent;
+      border-bottom-color: $baseColor;
     }
 
     &.active{
@@ -70,13 +75,13 @@ header{
 
   i{
     position: absolute;
-    right: 14.2rem;
+    right: 15rem;
   }
 
   input{
     padding: 0 .6rem;
     text-indent: 1rem;
-    width: 14.4rem;
+    width: 15rem;
     height: 2.4rem;
     border: none;
 
