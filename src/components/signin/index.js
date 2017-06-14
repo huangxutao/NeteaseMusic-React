@@ -15,10 +15,12 @@ class Signin extends Component {
           <p>
             <input type="text" />
             <label htmlFor="user">邮箱或用户名</label>
+            <span></span>
           </p>
           <p>
             <input type="password"/>
             <label htmlFor="password">密码</label>
+            <span></span>
           </p>
           <button>Signin</button>
         </form>

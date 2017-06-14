@@ -42,27 +42,59 @@
   }
 
   p{
-    margin: 2rem 0;
+    position: relative;
+    margin: 2.4rem 0;
+    height: 2.4rem;
 
     label{
-      display: inline-block;
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      height: 2.4rem;
+      line-height: 2.4rem;
       font-size: 1.2rem;
       color: #bbb;
-      transform: translateY(-2.4rem);
       transition: all .32s ease;
+    }
+
+    span{
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background: $baseColor;
+      opacity: 0;
+      transform: scaleX(0);
+      transition: transform .32s ease;
     }
   }
 
   input{
+    position: absolute;
+    padding: 0;
     width: 100%;
     height: 2.4rem;
     border: none;
     border-bottom: 1px solid #bbb;
     outline: none;
+    background: transparent;
+    z-index: 99;
+
+    &:focus{
+      border-color: transparent;
+      transition-delay: .3s;
+    }
 
     &:focus ~ label{
       font-size: 12px;
-      transform: translateY(-3.6rem);
+      transform: translateY(-1.8rem);
+    }
+
+    &:focus ~ span{
+      opacity: 1;
+      transform: scaleX(1);
     }
   }
 
@@ -78,7 +110,6 @@
     outline: none;
 
     &:active{
-      margin-top: 5.2rem;
       background: #b90909;
       box-shadow: 0 .4rem .6rem #888;
     }
