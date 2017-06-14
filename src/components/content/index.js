@@ -1,8 +1,16 @@
 import React from 'react';
 import { Component } from 'react';
+import { Route } from 'react-router-dom';
 import Ajax from '../../assets/js/ajax';
 
+// 样式
 import Style from './index.scss';
+
+// 子组件导入
+import FindMusic from './findMusic';
+import MyMusic from './myMusic';
+import Friend from './friend';
+import Artist from './artist';
 
 class Content extends Component {
   constructor (props) {
@@ -31,12 +39,10 @@ class Content extends Component {
   render () {
     return (
       <div className={Style.content}>
-        <section className={Style.items}>
-          <div className={Style.item}><i className="iconfont icon-tuijian"></i> 个性推荐</div>
-          <div className={Style.item}><i className="iconfont icon-gedan"></i> 歌单</div>
-          <div className={Style.item}><i className="iconfont icon-diantai"></i> 主播电台</div>
-          <div className={Style.item}><i className="iconfont icon-paihangbang"></i> 排行榜</div>
-        </section>
+        <Route exact path="/" component={FindMusic} />
+        <Route path="/myMusic" component={MyMusic} />
+        <Route path="/friends" component={Friend} />
+        <Route path="/artists" component={Artist} />
       </div>
     )
   }

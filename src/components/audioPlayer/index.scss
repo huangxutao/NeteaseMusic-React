@@ -1,0 +1,132 @@
+.box{
+  margin: 0 auto;
+  padding: 2rem 0;
+  width: 80%;
+  cursor: default;
+  user-select: none;
+
+  .progress{
+    position: relative;
+    height: 2px;
+    background: #eee;
+    cursor: pointer;
+
+    .curr{
+      position: absolute;
+      width: 0;
+      height: 100%;
+      background: lightcoral;
+    }
+
+    span{
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      margin: auto;
+      width: 6px;
+      height: 6px;
+      border-radius: 3px;
+      background: lightcoral;
+      box-shadow: 0 0 .5rem lightcoral;
+      transition: transform .32s ease;
+
+      &:hover{
+        transform: scale(1.6);
+      }
+    }
+  }
+}
+
+.menus{
+  display: flex;
+  justify-content: space-between;
+  padding: 1.6rem 2rem 0;;
+
+  .play{
+    border: .8rem solid #d1d3df;
+    border-right-width: 0;
+    border-left-width: 1.6rem;
+    cursor: pointer;
+
+    &.start{
+      border-color: #d1d3df;
+    }
+
+    &.stop{
+      border-color: transparent;
+      border-left-color: lightcoral;
+    }
+  }
+
+  .volume{
+    position: relative;
+    width: 1.6rem;
+    height: 1.6rem;
+    color: #d1d3df;
+    cursor: pointer;
+
+    i{
+      display: inline-block;
+      width: 1.6rem;
+      height: 1.6rem;
+      text-align: center;
+    }
+
+    .value{
+      position: absolute;
+      right: 0;
+      bottom: 1.6rem;
+      left: 0;
+      margin: auto;
+      width: 1.2rem;
+      height: 12rem;
+      background: #eee;
+      opacity: 0;
+      transform: translateY(-2rem) scaleX(0);
+      transition: all .32s ease;
+
+      .curr{
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        height: 20%;
+        background: lightcoral;
+      }
+
+      span{
+        position: absolute;
+        bottom: 0;
+      }
+    }
+
+    &:hover .value{
+      opacity: 1;
+      transform: translateY(0) scaleX(1);
+    }
+
+    &.mute:after{
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      margin: auto;
+      width: 120%;
+      height: 2px;
+      background: #d1d3df;
+      transform: rotate(45deg);
+    }
+  }
+
+  .passed, .wait{
+    color: #bbb;
+  }
+
+  .lyric{
+    width: 22rem;
+    height: 1.6rem;
+    text-align: center;
+    font-size: 1.2rem;
+  }
+}

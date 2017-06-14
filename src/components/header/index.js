@@ -1,22 +1,32 @@
 import React from 'react';
 import { Component } from 'react';
+import { NavLink, Link } from 'react-router-dom';
 
 import Style from './index.scss';
 import Logo from '../../assets/images/logo.png';
 
 class Header extends Component {
+  constructor (props) {
+    super(props);
+
+    this.state = {
+
+    }
+  }
   render () {
     return (
       <header>
         <div className={Style.logo}>
-          <img src={Logo} alt="" />
-          Cloud Music
+          <Link to="/">
+            <img src={Logo} alt="" />
+            Cloud Music
+          </Link>
         </div>
         <nav className={Style.nav}>
-          <a href="" className={Style.active}>发现音乐</a>
-          <a href="">我的音乐</a>
-          <a href="">朋友</a>
-          <a href="">音乐人</a>
+          <NavLink exact to="/" activeClassName={Style.active}>发现音乐</NavLink>
+          <NavLink to="/myMusic" activeClassName={Style.active}>我的音乐</NavLink>
+          <NavLink to="/friends" activeClassName={Style.active}>朋友</NavLink>
+          <NavLink to="/artists" activeClassName={Style.active}>音乐人</NavLink>
         </nav>
         <div className={Style.search}>
           <label htmlFor="">
