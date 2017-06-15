@@ -18,7 +18,8 @@ class Signin extends Component {
       passwordInput: false,
       loading: false,
       closed: false,
-      signinFail: false
+      signinFail: false,
+      signinMsg: '登录失败'
     }
   }
 
@@ -72,8 +73,9 @@ class Signin extends Component {
         window.localStorage.setItem('ncm-profile', JSON.stringify(res.profile))
       } else {
         this.setState({
-          signinFail: true
-        })
+          signinFail: true,
+          signinMsg: res.msg ? res.msg : this.state.signinMsg
+        });
       }
 
       console.log(res)
@@ -116,7 +118,7 @@ class Signin extends Component {
           </p>
           {
             this.state.signinFail
-              ? <p className={Style.warning}>登录失败</p>
+              ? <p className={Style.warning}>{this.state.signinMsg}</p>
               : ''
           }
           <button>
