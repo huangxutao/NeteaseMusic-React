@@ -7,6 +7,7 @@ import Ajax from '../../assets/js/ajax';
 import Style from './index.scss';
 
 // 子组件导入
+import Signin from '../signin';
 import FindMusic from './findMusic';
 import MyMusic from './myMusic';
 import Friend from './friend';
@@ -17,14 +18,17 @@ class Content extends Component {
     super(props);
 
     this.state = {
-      hotLists: [{
-        name: 'hello'
-      }]
+      isSignin: false
     };
   }
 
   componentDidMount() {
     this.getList();
+  }
+
+  componentWillUpdate () {
+    console.log('update...')
+
   }
 
   getList(num) {
@@ -38,10 +42,13 @@ class Content extends Component {
 
   render () {
     return (
-      <div className={Style.content}>
-        <Route exact path="/" component={FindMusic} />
-        <Route path="/myMusic" component={MyMusic} />
-        <Route path="/friends" component={Friend} />
+      <div className={Style.content} dataaa={this.state}>
+        {
+          this.state.isSignin ? '' : <Signin />
+        }
+        <Route exact path="/" component={FindMusic} isSignin={this.state.isSignin} />
+        <Route path="/myMusic" component={MyMusic} isSignin={this.state.isSignin} />
+        <Route path="/friends" component={Friend} isSignin={this.state.isSignin} />
         <Route path="/artists" component={Artist} />
       </div>
     )

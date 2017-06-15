@@ -2,17 +2,30 @@ import React from 'react';
 import { Component } from 'react';
 import { NavLink, Link } from 'react-router-dom';
 
+// 静态资源导入
 import Style from './index.scss';
 import Logo from '../../assets/images/logo.png';
+import Avatar from '../../assets/images/user.png';
 
 class Header extends Component {
   constructor (props) {
     super(props);
 
     this.state = {
-
+      userAvatarUrl: Avatar
     }
   }
+
+  componentWillMount () {
+    let userProfile = JSON.parse(window.localStorage.getItem('ncm-profile'));
+
+    if(userProfile && userProfile.avatarUrl) {
+      this.setState({
+        userAvatarUrl: userProfile.avatarUrl
+      });
+    }
+  }
+
   render () {
     return (
       <header>
@@ -28,6 +41,11 @@ class Header extends Component {
           <NavLink to="/friends" activeClassName={Style.active}>朋友</NavLink>
           <NavLink to="/artists" activeClassName={Style.active}>音乐人</NavLink>
         </nav>
+        <div className={Style.user}>
+          <Link to="/myMusic">
+            <img src={this.state.userAvatarUrl} alt=""/>
+          </Link>
+        </div>
         <div className={Style.search}>
           <label htmlFor="">
             <i className="iconfont icon-search"></i>
